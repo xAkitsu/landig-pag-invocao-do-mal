@@ -35,8 +35,9 @@ function html() {
     }
   });
 */
-  gulp.watch("src/scss/**/*.scss", styles);
-  gulp.watch("src/js/**/*.js", scripts);
-  gulp.watch("src/*.html", html);
+
+  //gulp.watch("src/scss/**/*.scss", styles);
+  //gulp.watch("src/js/**/*.js", scripts);
+  //gulp.watch("src/*.html", html);
 
 exports.default = gulp.series(gulp.parallel(styles, scripts, html));
