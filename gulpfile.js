@@ -13,7 +13,6 @@ function styles() {
     .pipe(cleanCSS())
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("dist/css"))
-    .pipe(browserSync.stream());
 }
 
 function scripts() {
@@ -21,13 +20,11 @@ function scripts() {
     .pipe(concat("main.js"))
     .pipe(uglify())
     .pipe(gulp.dest("dist/js"))
-    .pipe(browserSync.stream());
 }
 
 function html() {
   return gulp.src("src/*.html")
     .pipe(gulp.dest("dist"))
-    .pipe(browserSync.stream());
 }
 
    function serve() {
