@@ -4,7 +4,6 @@ const cleanCSS = require("gulp-clean-css");
 const uglify = require("gulp-uglify");
 const concat = require("gulp-concat");
 const sourcemaps = require("gulp-sourcemaps");
-// const browserSync = require("browser-sync").create();
 
 function styles() {
   return gulp.src("src/scss/style.scss")
@@ -22,22 +21,7 @@ function scripts() {
     .pipe(gulp.dest("dist/js"))
 }
 
-function html() {
-  return gulp.src("src/*.html")
-    .pipe(gulp.dest("dist"))
-}
+  gulp.watch("src/scss/**/*.scss", styles);
+  gulp.watch("src/js/**/*.js", scripts);
 
-   
-    /*
-  browserSync.init({
-    server: {
-      baseDir: "dist"
-    }
-  });
-*/
-
-  //gulp.watch("src/scss/**/*.scss", styles);
-  //gulp.watch("src/js/**/*.js", scripts);
-  //gulp.watch("src/*.html", html);
-
-exports.default = gulp.series(gulp.parallel(styles, scripts, html));
+exports.default = gulp.series(gulp.parallel(styles, scripts));
